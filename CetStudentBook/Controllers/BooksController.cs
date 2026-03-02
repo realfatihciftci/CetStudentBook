@@ -16,6 +16,6 @@ public class BooksController : Controller
     public IActionResult Index()
     {
         var books = _context.Books.ToList();
-        return View();
+        return View(books);
     }
 }
