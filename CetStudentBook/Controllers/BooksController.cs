@@ -1,4 +1,5 @@
 using CetStudentBook.Data;
+using CetStudentBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CetStudentBook.Controllers;
@@ -17,5 +18,23 @@ public class BooksController : Controller
     {
         var books = _context.Books.ToList();
         return View(books);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Create(Book book)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(book);
     }
 }
