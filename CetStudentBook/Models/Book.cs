@@ -2,15 +2,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CetStudentBook.Models;
 
-public class Book
-{
     public class Book
     {
         [Key]
-        public int BookId { get; set; }
+        public int Id { get; set; }
         
         [Required(ErrorMessage = "Name is required.")]
-        [StringLength(200, MinimumLength = 2, ErrorMessage =" Name must be between 2 and 200 characters long."]
+        [StringLength(200, MinimumLength = 2, ErrorMessage =" Name must be between 2 and 200 characters long.")]
         public string Name { get; set; }
         
         [Required(ErrorMessage = "Author is required")]
@@ -28,4 +26,3 @@ public class Book
         [Required]
         public bool IsSecondHand { get; set; }
     }
-}
