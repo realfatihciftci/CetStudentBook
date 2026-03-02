@@ -13,7 +13,7 @@ In this assignment, a full CRUD (Create, Read, Update, Delete) functionality for
 2. Open the project folder in terminal or your preferred IDE (Rider, Visual Studio etc.).
 3. Run the following command to start the application:
    `dotnet run`
-4. Open a web browser and navigate to the local host address provided in the terminal.
+4. Open web browser and navigate to the local host address provided in the terminal.
 
 ### Database/Migration steps
 The project uses SQLite as the database. To set up the database and create the `Books` table, open your terminal in the project directory and run:
