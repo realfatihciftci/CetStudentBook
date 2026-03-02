@@ -70,4 +70,32 @@ public class BooksController : Controller
         }
         return View(book);
     }
+
+    public IActionResult Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var book = _context.Books.Find(id);
+        if (book == null)
+        {
+            return NotFound();
+        }
+        return View(book);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var book = _context.Books.Find(id);
+        if (book != null)
+        {
+            _context.Books.Remove(book);
+            _context.SaveChanges();
+        }
+        return RedirectToAction(nameof(Index));
+    }
+    
 }
